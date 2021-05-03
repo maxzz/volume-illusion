@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 function App() {
-    const [count, setCount] = useState(0);
 
     return (
-        <div className="App bg-red-600">
-            <div className="bg-yellow-600">{count}</div>
-            <button className="text-red-500 bg-yellow-600">a11a</button>
+        <div className="App bg-green-50 h-screen">
+            <div className="relative">
+                <div className="w-20 h-20 bg-purple-400"></div>
+                <div className="w-20 h-20 bg-purple-500"></div>
+                <div className="w-20 h-20 bg-purple-600"></div>
+            </div>
         </div>
     );
 }
