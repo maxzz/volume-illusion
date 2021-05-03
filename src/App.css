@@ -1,0 +1,19 @@
+.threed {
+    --positionX: 20px;
+    --positionXOpposite: -20px;
+    --positionY: 20px;
+    --positionYOpposite: -20px;
+    --angle: 145deg;
+    --blur: 0px;
+    --textColor: #F6F5F7;
+    --textColorOpposite: #184177;
+    --baseColor: #184177;
+    --darkColor: #143765;
+    --lightColor: #1c4b89;
+    --firstGradientColor: #184177;
+    --secondGradientColor: #184177;
+    --size: 300px;
+    --radius: 50px;    
+
+    box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
+}
