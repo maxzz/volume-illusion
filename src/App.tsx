@@ -14,7 +14,6 @@ type ShapeParams = {
 
     td: any,
 
-    shape: number;
     sun: number;
 };
 
@@ -29,7 +28,6 @@ function App() {
 
         td: {value: {x:1,y:0}, max:100},
 
-        shape: { value: 3, min: 0, max: 4, step: 1 },
         sun: { value: 1, min: 1, max: 4, step: 1 },
     });
 
@@ -40,12 +38,12 @@ function App() {
     const darkColor = colorLuminance(PARAMS.color, PARAMS.intensity * -1);
     const lightColor = colorLuminance(PARAMS.color, PARAMS.intensity);
 
-    let shape = Math.trunc(PARAMS.shape);
+    let shape = newShape;
 
     const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
     const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
 
-    let activeLightSource = Math.trunc(PARAMS.shape);
+    let activeLightSource = PARAMS.sun;
 
     let positionX;
     let positionY;
@@ -104,7 +102,8 @@ function App() {
 
     //console.log({ PARAMS });
 
-    function handleShape() {
+    function handleShape(id: number) {
+        setNewShape(id);
     }
 
     return (
