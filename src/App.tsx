@@ -12,12 +12,17 @@ function App() {
 
     useEffect(() => {
         let panels = new Tweakpane({
-            
+            title: 'Controls'
         });
         panels.addInput(PARAMS, 'color');
         panels.addInput(PARAMS, 'tint').on('change', (e) => {
             setPARAMS((v) => ({...v, tint: e.value}));
         });
+
+        panels.on('change', (ev) => {
+            console.log(`changed: ${ev.presetKey} = ${ev.value}`);
+        });
+
         pane.current = panels;
         return () => {
             pane.current = undefined;
@@ -28,9 +33,15 @@ function App() {
         setTimeout(() => {
             console.log('-----------');
             
-            setPARAMS((v) => ({...v, tint: 'red'}))
-        }, 1000);
+            setPARAMS((v) => ({...v, tint: '#000'}));
+            //pane.current?.refresh();
+        }, 2000);
     }, []);
+
+    useEffect(() => {
+        console.log('===========', {PARAMS}, {pane: pane.current });
+        pane.current?.refresh();
+    }, [PARAMS]);
 
     return (
         <div className="App bg-green-50 h-screen flex place-items-center justify-center">
