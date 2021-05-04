@@ -14,7 +14,7 @@
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "tailwindcss": "^2.1.2",
-        "tweakpane": "^2.4.3",
+        "tweakpane": "1.5.6",
         "use-tweaks": "^0.3.1"
     },
     "devDependencies": {
