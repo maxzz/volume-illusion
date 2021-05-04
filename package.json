@@ -6,7 +6,9 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "serve": "vite preview"
+        "serve": "vite preview",
+        "predeploy": "yarn build",
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "react": "^17.0.0",
