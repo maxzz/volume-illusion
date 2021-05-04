@@ -8,21 +8,24 @@ function App() {
         color: '#4f8df3',
         size: { value: 150, min: 10, max: 400 },
         radius: { value: 90, min: 0, max: 100 },
-        distance: { value: 22, min: 5, max: 50 },
+        distance: { value: 15, min: 5, max: 50 },
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
-        blur: { value: 23, min: 0, max: 100 },
+        blur: { value: 19, min: 0, max: 100 },
 
-        shape: { value: 1, min: 1, max: 4 },
+        shape: { value: 3, min: 0, max: 4, step: 1 },
     });
 
     const gradient = true;
+
     const darkColor = colorLuminance(PARAMS.color, PARAMS.intensity * -1);
     const lightColor = colorLuminance(PARAMS.color, PARAMS.intensity);
 
-    const firstGradientColor = gradient && PARAMS.shape !== 1 ? colorLuminance(PARAMS.color, PARAMS.shape === 3 ? 0.07 : -0.1) : PARAMS.color;
-    const secondGradientColor = gradient && PARAMS.shape !== 1 ? colorLuminance(PARAMS.color, PARAMS.shape === 2 ? 0.07 : -0.1) : PARAMS.color;
+    let shape = Math.trunc(PARAMS.shape);
 
-    let activeLightSource = 1;
+    const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
+    const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
+
+    let activeLightSource = Math.trunc(PARAMS.shape);
 
     let positionX;
     let positionY;
@@ -79,7 +82,7 @@ function App() {
         '--radius': `${PARAMS.radius}px`,
     } as CSSProperties;
 
-    console.log({ PARAMS });
+    //console.log({ PARAMS });
 
     return (
         <div className="h-screen flex place-items-center justify-center" style={{ backgroundColor: PARAMS.color }}>
