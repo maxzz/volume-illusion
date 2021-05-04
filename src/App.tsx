@@ -24,6 +24,14 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        setTimeout(() => {
+            console.log('-----------');
+            
+            setPARAMS((v) => ({...v, tint: 'red'}))
+        }, 1000);
+    }, []);
+
     return (
         <div className="App bg-green-50 h-screen flex place-items-center justify-center">
             <div className="relative w-96 h-96">
