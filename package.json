@@ -1,6 +1,8 @@
 {
     "name": "volume-illusion",
+    "description": "The volume illusion experiments.",
     "version": "0.0.0",
+    "license": "MIT",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
@@ -9,7 +11,9 @@
     "dependencies": {
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
-        "tailwindcss": "^2.1.2"
+        "tailwindcss": "^2.1.2",
+        "tweakpane": "^2.4.3",
+        "use-tweaks": "^0.3.1"
     },
     "devDependencies": {
         "@tailwindcss/jit": "^0.1.18",

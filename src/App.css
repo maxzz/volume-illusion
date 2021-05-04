@@ -17,3 +17,7 @@
 
     box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
 }
+
+.box1 {
+    border-radius: 55% 65% 67% 33% / 21% 30% 70% 79%;
+}
