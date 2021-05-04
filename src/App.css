@@ -1,8 +1,8 @@
 .threed {
-    --positionX: 20px;
+    /* --positionX: 20px;
     --positionXOpposite: -20px;
     --positionY: 20px;
-    --positionYOpposite: -20px;
+    --positionYOpposite: -20px; */
     --angle: 145deg;
     --blur: 0px;
     --textColor: #F6F5F7;
