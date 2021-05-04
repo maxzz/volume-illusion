@@ -6,17 +6,17 @@ function App() {
     const PARAMS = useTweaks('Controls', {
         color: '',
         tint: '#22aaeeff',
-        positionX: '20',
-        positionXOpposite: '-20',
-        positionY: '20',
-        positionYOpposite: '-20',
+        posX: { value: 20, min: 0, max: 40 },
+        posXOpposite: { value: -20, min: -40, max: 40 },
+        posY: { value: 20, min: 0, max: 40 },
+        posYOpposite: { value: -20, min: -40, max: 40 },
     });
 
     const type = {
-        '--positionX': `${PARAMS.positionX}px`,
-        '--positionXOpposite': `${PARAMS.positionXOpposite}px`,
-        '--positionY': `${PARAMS.positionY}px`,
-        '--positionYOpposite': `${PARAMS.positionYOpposite}px`,
+        '--positionX': `${PARAMS.posX}px`,
+        '--positionXOpposite': `${PARAMS.posXOpposite}px`,
+        '--positionY': `${PARAMS.posY}px`,
+        '--positionYOpposite': `${PARAMS.posYOpposite}px`,
     } as CSSProperties;
 
     //console.log({tint});
