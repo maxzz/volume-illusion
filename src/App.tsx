@@ -27,7 +27,7 @@ function App() {
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
         blur: { value: 19, min: 0, max: 100 },
 
-        td: {value: {x:1,y:0}},
+        td: {value: {x:1,y:0}, max:100},
 
         shape: { value: 3, min: 0, max: 4, step: 1 },
         sun: { value: 1, min: 1, max: 4, step: 1 },
@@ -108,13 +108,17 @@ function App() {
     }
 
     return (
-        <div className="h-screen flex place-items-center justify-center" style={{ backgroundColor: PARAMS.color }}>
-            <div className="relative w-96 h-96" style={type}>
-                <div className="bg-purple-600 threed box1 absolute top-0 left-0 threed"></div>
-                <div className="w-20 h-20 bg-purple-400 threed box1 absolute top-0 right-0" style={{}}></div>
-                <div className="bg-purple-500 threed box1 absolute bottom-0 right-0 threed" style={type}></div>
+        <div className="h-screen flex flex-col place-items-center justify-between" style={{ backgroundColor: PARAMS.color }}>
+            <div className="p-4 mb-12 self-start">
+                <ShapeSwitcher shape={newShape} setShape={handleShape} />
             </div>
-            <ShapeSwitcher shape={newShape} setShape={handleShape} />
+            <div className="flex-1 flex items-center">
+                <div className="relative w-96 h-96" style={type}>
+                    <div className="bg-purple-600 threed box1 absolute top-0 left-0 threed"></div>
+                    <div className="w-20 h-20 bg-purple-400 threed box1 absolute top-0 right-0" style={{}}></div>
+                    <div className="bg-purple-500 threed box1 absolute bottom-0 right-0 threed" style={type}></div>
+                </div>
+            </div>
         </div>
     );
 }
