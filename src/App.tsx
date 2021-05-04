@@ -2,6 +2,7 @@ import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import './App.scss';
 import { useTweaks } from 'use-tweaks';
 import { colorLuminance, getContrast } from './utils';
+import ShapeSwitcher from './components/ShapeSwitcher';
 
 function App() {
     const PARAMS = useTweaks('Controls', {
@@ -14,6 +15,8 @@ function App() {
 
         shape: { value: 3, min: 0, max: 4, step: 1 },
     });
+
+    const [ newShape, setNewShape ] = useState(0);
 
     const gradient = true;
 
@@ -84,6 +87,9 @@ function App() {
 
     //console.log({ PARAMS });
 
+    function handleShape() {
+    }
+
     return (
         <div className="h-screen flex place-items-center justify-center" style={{ backgroundColor: PARAMS.color }}>
             <div className="relative w-96 h-96" style={type}>
@@ -91,6 +97,7 @@ function App() {
                 <div className="w-20 h-20 bg-purple-400 threed box1 absolute top-0 right-0" style={{}}></div>
                 <div className="bg-purple-500 threed box1 absolute bottom-0 right-0 threed" style={type}></div>
             </div>
+            <ShapeSwitcher shape={newShape} setShape={handleShape} />
         </div>
     );
 }
