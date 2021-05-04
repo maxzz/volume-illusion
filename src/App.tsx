@@ -4,8 +4,22 @@ import { useTweaks } from 'use-tweaks';
 import { colorLuminance, getContrast } from './utils';
 import ShapeSwitcher from './components/ShapeSwitcher';
 
+type ShapeParams = {
+    color: string;
+    size: number;
+    radius: number;
+    distance: number;
+    intensity: number;
+    blur: number;
+
+    td: any,
+
+    shape: number;
+    sun: number;
+};
+
 function App() {
-    const PARAMS = useTweaks('Controls', {
+    const PARAMS: ShapeParams = useTweaks('Controls', {
         color: '#4f8df3',
         size: { value: 150, min: 10, max: 400 },
         radius: { value: 90, min: 0, max: 100 },
@@ -13,7 +27,10 @@ function App() {
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
         blur: { value: 19, min: 0, max: 100 },
 
+        td: {value: {x:1,y:0}},
+
         shape: { value: 3, min: 0, max: 4, step: 1 },
+        sun: { value: 1, min: 1, max: 4, step: 1 },
     });
 
     const [ newShape, setNewShape ] = useState(0);
