@@ -2,7 +2,7 @@
 
 Illusion of three-dimensional shapes.
 
-![](src/assets/previews/2021-05-03_16-38-27.png)
+![](src/assets/previews/2021-05-04_2-06-38.png)
 
 #### Inspired by
 
