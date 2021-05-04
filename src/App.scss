@@ -27,6 +27,8 @@
 
         var(--positionXOpposite) var(--positionYOpposite)
         var(--blur) var(--lightColor);
+
+        border-radius: var(--radius);
 }
 
 .box1 {
