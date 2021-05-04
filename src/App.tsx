@@ -6,10 +6,10 @@ function App() {
     const PARAMS = useTweaks('Controls', {
         color: '',
         tint: '#22aaeeff',
-        posX: { value: 20, min: 0, max: 40 },
-        posXOpposite: { value: -20, min: -40, max: 40 },
-        posY: { value: 20, min: 0, max: 40 },
-        posYOpposite: { value: -20, min: -40, max: 40 },
+        posXOpposite: { value: -20, min: -40, max: 0, label: 'X left' },
+        posX: { value: 20, min: 0, max: 40, label: 'X right' },
+        posYOpposite: { value: -20, min: -40, max: 0, label: 'Y left' },
+        posY: { value: 20, min: 0, max: 40, label: 'Y right' },
     });
 
     const type = {
