@@ -6,26 +6,26 @@ const ShapeSwitcher = ({ shape, setShape }: { shape: number, setShape: () => voi
             <div className="">
                 <label>Shape: </label>
             </div>
-            <div className="text-red-400">
-                <div className="shape-switch">
+            <div className="text-red-50">
+                <div className="flex w-32 h-4">
                     <button className={shape === 0 ? "active" : ""} onClick={setShape} name="flat" title="Flat" data-shape="0">
-                        <svg width="100" height="24" viewBox="0 0 100 24" preserveAspectRatio="none">
-                            <path d="M100 24h-3c-7 0-12-6-12-13V1H16v10c0 7-6 13-13 13H0" fill="none" stroke="currentColor" stroke-width="1" />
+                        <svg width="100%" height="100%" viewBox="0 0 50 50" overflow="visible">
+                            <path d="M50 50h-2c-4 0-8-4-8-9V1H11v40c0 5-4 9-8 9H0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
                         </svg>
                     </button>
                     <button className={shape === 2 ? "active" : ""} onClick={setShape} name="concave" title="Concave" data-shape="2">
-                        <svg width="100" height="24" viewBox="0 0 100 25">
-                            <path d="M100 25h-3c-7 0-12-6-12-14V1C62 18 39 18 16 1v10c0 8-6 14-13 14H0" fill="none" stroke="currentColor" stroke-width="1" />
+                        <svg width="100%" height="100%" viewBox="0 0 50 50" overflow="visible">
+                            <path d="M50 50H40V1C30 17 21 18 11 1v49H0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
                         </svg>
                     </button>
                     <button className={shape === 3 ? "active" : ""} onClick={setShape} name="convex" title="Convex" data-shape="3">
-                        <svg width="100" height="24" viewBox="0 0 100 25">
-                            <path d="M100 24h-3c-7 0-12-5-12-11v-2a60 60 0 00-69 0v2c0 6-6 11-13 11H0" fill="none" stroke="currentColor" stroke-width="1" />
+                        <svg width="100%" height="100%" viewBox="0 0 50 50" overflow="visible">
+                            <path d="M50 50H40V10C30-2 21-3 11 10v40H0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
                         </svg>
                     </button>
                     <button className={shape === 1 ? "active" : ""} onClick={setShape} name="pressed" title="Pressed" data-shape="1">
-                        <svg width="100" height="24">
-                            <path d="M0 1h15v7c0 9 7 16 15 16h39c8 0 15-7 15-16V1h16" fill="none" stroke="currentColor" stroke-width="1" />
+                        <svg width="100%" height="100%" viewBox="0 0 50 50" overflow="visible">
+                            <path d="M0 1h11v39c0 5 4 10 9 10h9c6 0 10-5 10-10V1h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
