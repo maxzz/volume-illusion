@@ -12,8 +12,6 @@ type ShapeParams = {
     distance: number;
     intensity: number;
     blur: number;
-
-    sun: number;
 };
 
 function App() {
@@ -24,11 +22,10 @@ function App() {
         distance: { value: 15, min: 5, max: 50 },
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
         blur: { value: 19, min: 0, max: 100 },
-
-        sun: { value: 1, min: 1, max: 4, step: 1 },
     });
 
     const [ newShape, setNewShape ] = useState(0);
+    const [ newLight, setNewLight ] = useState(0);
 
     const gradient = true;
 
@@ -40,7 +37,7 @@ function App() {
     const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
     const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
 
-    let activeLightSource = PARAMS.sun;
+    let activeLightSource = newLight + 1;
 
     let positionX;
     let positionY;
@@ -59,14 +56,14 @@ function App() {
             angle = 225;
             break;
         case 3:
-            positionX = PARAMS.distance * -1;
-            positionY = PARAMS.distance * -1;
-            angle = 315;
-            break;
-        case 4:
             positionX = PARAMS.distance;
             positionY = PARAMS.distance * -1;
             angle = 45;
+            break;
+        case 4:
+            positionX = PARAMS.distance * -1;
+            positionY = PARAMS.distance * -1;
+            angle = 315;
             break;
         default:
             positionX = PARAMS.distance;
@@ -99,6 +96,10 @@ function App() {
 
     //console.log({ PARAMS });
 
+    function handleLight(id: number) {
+        setNewLight(id);
+    }
+
     function handleShape(id: number) {
         setNewShape(id);
     }
@@ -106,7 +107,7 @@ function App() {
     return (
         <div className="h-screen flex flex-col place-items-center justify-between" style={{ backgroundColor: PARAMS.color }}>
             <div className="p-4 self-start">
-                <LightSwitcher />
+                <LightSwitcher source={newLight} setSource={handleLight} />
             </div>
             <div className="px-4 mb-12 self-start">
                 <ShapeSwitcher shape={newShape} setShape={handleShape} />
