@@ -3,6 +3,15 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {},
+        fontFamily: {
+            courier: [
+                'Roboto Mono',
+                'Source Code Pro',
+                'Menlo',
+                'Courier',
+                'monospace',
+            ],
+        },
     },
     variants: {
         extend: {},
