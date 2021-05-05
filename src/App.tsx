@@ -91,11 +91,11 @@ function App() {
                 style={{boxShadow: '0 2px 4px #00000033'}}
             >
                 <div className="">
-                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier">Light source</div>
+                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier tracking-tight">Light position</div>
                     <LightSwitcher source={sun} setSource={setSun} />
                 </div>
                 <div className="">
-                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier">Shape</div>
+                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier tracking-tight">Shape profile</div>
                     <div className="-ml-1">
                     <ShapeSwitcher shape={shape} setShape={setShape} />
                     </div>
