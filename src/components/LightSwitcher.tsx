@@ -2,6 +2,7 @@ import React from 'react';
 
 function LightSwitcher({source, setSource}: {source: number, setSource: (n: number) => void}) {
     let gradient = source === 3 ? 'bl' : source === 2 ? 'br' : source === 1 ? 'tr' : 'tl';
+    let ff = `bg-gradient-to-${gradient}`
 
     return (
         <div className="grid grid-cols-3 text-gray-100">
@@ -30,7 +31,7 @@ function LightSwitcher({source, setSource}: {source: number, setSource: (n: numb
                 </svg>
             </div>
 
-            <div className={`h-6 w-6 px-4 col-span-3 justify-self-center border rounded bg-gradient-to-${gradient} from-yellow-400 via-red-500 to-pink-500`}></div>
+            <div className={`h-6 w-6 px-4 col-span-3 justify-self-center border rounded ${ff} from-yellow-800 via-red-800 to-yellow-100`}></div>
 
             <div className="col-span-2 min-w-[64px]">
                 <svg
