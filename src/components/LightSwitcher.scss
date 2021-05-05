@@ -1,0 +1,15 @@
+.tm-bg-tl {
+    background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+}
+
+.tm-bg-tr {
+    background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+}
+
+.tm-bg-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.tm-bg-bl {
+    background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
+}
