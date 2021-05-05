@@ -30,7 +30,7 @@ function LightSwitcher({source, setSource}: {source: number, setSource: (n: numb
                 </svg>
             </div>
 
-            <div className={`h-6 w-6 px-4 col-span-3 justify-self-center border rounded tm-bg-${gradient} from-[#fbbf24a0] via-transparent to-transparent`}></div>
+            <div className={`h-6 w-6 px-4 col-span-3 justify-self-center border rounded tm-bg-${gradient} from-[#fbbf2480] via-transparent to-transparent`}></div>
 
             <div className="col-span-2 min-w-[64px]">
                 <svg
