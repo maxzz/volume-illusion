@@ -14,6 +14,29 @@ type ShapeParams = {
     blur: number;
 };
 
+const lightPositions: { x: number, y: number, angle: number; }[] = [
+    {
+        x: 1,
+        y: 1,
+        angle: 145,
+    },
+    {
+        x: -1,
+        y: 1,
+        angle: 225,
+    },
+    {
+        x: 1,
+        y: -1,
+        angle: 45,
+    },
+    {
+        x: -1,
+        y: -1,
+        angle: 315,
+    },
+];
+
 function App() {
     const PARAMS: ShapeParams = useTweaks('Controls', {
         color: '#4f8df3',
@@ -27,43 +50,18 @@ function App() {
     const [shape, setShape] = useState(0);
     const [sun, setSun] = useState(0);
 
-    const gradient = true;
-
     const shapeClass = shape === 1 ? 'threed-down' : 'threed';
 
     const darkColor = colorLuminance(PARAMS.color, PARAMS.intensity * -1);
     const lightColor = colorLuminance(PARAMS.color, PARAMS.intensity);
 
-    const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
-    const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
-
-    const lightPositions: { x: number, y: number, angle: number; }[] = [
-        {
-            x: 1,
-            y: 1,
-            angle: 145,
-        },
-        {
-            x: -1,
-            y: 1,
-            angle: 225,
-        },
-        {
-            x: 1,
-            y: -1,
-            angle: 45,
-        },
-        {
-            x: -1,
-            y: -1,
-            angle: 315,
-        },
-    ];
+    const gradient = shape === 2 || shape === 3;
+    const firstGradientColor = gradient ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
+    const secondGradientColor = gradient ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
 
     let lightPosition = lightPositions[sun % 4];
     let positionX = PARAMS.distance * lightPosition.x;
     let positionY = PARAMS.distance * lightPosition.y;
-    let angle = lightPosition.angle;
 
     const type = {
         '--positionX': `${positionX}px`,
@@ -71,7 +69,7 @@ function App() {
         '--positionY': `${positionY}px`,
         '--positionYOpposite': `${positionY * -1}px`,
 
-        '--angle': `${angle}deg`,
+        '--angle': `${lightPosition.angle}deg`,
         '--blur': `${PARAMS.blur}px`,
 
         '--textColor': `${getContrast(PARAMS.color)}`,
