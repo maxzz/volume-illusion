@@ -17,7 +17,7 @@ type ShapeParams = {
 function App() {
     const PARAMS: ShapeParams = useTweaks('Controls', {
         color: '#4f8df3',
-        size: { value: 150, min: 10, max: 400 },
+        size: { value: 150, min: 10, max: 900 },
         radius: { value: 20, min: 0, max: 100 },
         distance: { value: 15, min: 5, max: 50 },
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
@@ -118,9 +118,10 @@ function App() {
             </div>
             <div className="flex-1 flex items-center">
                 <div className="relative w-96 h-96" style={type}>
-                    <div className="bg-purple-600 threed box1 absolute top-0 left-0 threed"></div>
-                    <div className="w-20 h-20 bg-purple-400 threed box1 absolute top-0 right-0" style={{}}></div>
-                    <div className="bg-purple-500 threed box1 absolute bottom-0 right-0 threed" style={type}></div>
+                    <div className="threed box1 absolute top-0 left-0"></div>
+                    <div className="threed box1 absolute top-0 right-0"></div>
+                    <div className="threed box1 absolute bottom-0 left-0"></div>
+                    <div className="threed box1 absolute bottom-0 right-0"></div>
                 </div>
             </div>
         </div>
