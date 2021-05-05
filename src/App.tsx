@@ -19,7 +19,7 @@ function App() {
         color: '#4f8df3',
         size: { value: 150, min: 10, max: 900 },
         radius: { value: 20, min: 0, max: 100 },
-        distance: { value: 15, min: 5, max: 50 },
+        distance: { value: 15, min: 0, max: 50 },
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
         blur: { value: 19, min: 0, max: 100 },
     });
@@ -37,40 +37,33 @@ function App() {
     const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
     const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
 
-    let activeLightSource = newLight + 1;
+    const lightPositions = [
+        {
+            positionX: 1,
+            positionY: 1,
+            angle: 145,
+        },
+        {
+            positionX: -1,
+            positionY: 1,
+            angle: 225,
+        },
+        {
+            positionX: 1,
+            positionY: -1,
+            angle: 45,
+        },
+        {
+            positionX: -1,
+            positionY: -1,
+            angle: 315,
+        },
+    ];
 
-    let positionX;
-    let positionY;
-    let angle;
-
-    // TODO: replace with a map
-    switch (activeLightSource) {
-        case 1:
-            positionX = PARAMS.distance;
-            positionY = PARAMS.distance;
-            angle = 145;
-            break;
-        case 2:
-            positionX = PARAMS.distance * -1;
-            positionY = PARAMS.distance;
-            angle = 225;
-            break;
-        case 3:
-            positionX = PARAMS.distance;
-            positionY = PARAMS.distance * -1;
-            angle = 45;
-            break;
-        case 4:
-            positionX = PARAMS.distance * -1;
-            positionY = PARAMS.distance * -1;
-            angle = 315;
-            break;
-        default:
-            positionX = PARAMS.distance;
-            positionY = PARAMS.distance;
-            angle = 145;
-            break;
-    }
+    let lightPosition = lightPositions[newLight % 4];
+    let positionX = PARAMS.distance * lightPosition.positionX;
+    let positionY = PARAMS.distance * lightPosition.positionY;
+    let angle = lightPosition.angle;
 
     const type = {
         '--positionX': `${positionX}px`,
