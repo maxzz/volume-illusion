@@ -1,11 +1,11 @@
 import React from 'react';
-import './LightSwitcher.scss';
+import './LightSwitcher.css';
 
 function LightSwitcher({source, setSource}: {source: number, setSource: (n: number) => void}) {
     let gradient = source === 3 ? 'bl' : source === 2 ? 'br' : source === 1 ? 'tr' : 'tl';
     return (
         <div className="grid grid-cols-3 text-gray-100">
-            <div className="col-span-2 min-w-[64px]">
+            <div className="col-span-2 min-w-[64px] bbt">
                 <svg
                     className={`${source === 0 ? 'fill-[#fefe1f] stroke-[#654900]' : 'opacity-30'} h-6 w-6 transform rotate-[135deg] translate-x-[100%] cursor-pointer`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
