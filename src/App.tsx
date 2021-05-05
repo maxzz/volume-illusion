@@ -106,11 +106,15 @@ function App() {
 
     return (
         <div className="h-screen flex flex-col place-items-center justify-between" style={{ backgroundColor: PARAMS.color }}>
-            <div className="p-4 self-start">
-                <LightSwitcher source={newLight} setSource={handleLight} />
-            </div>
-            <div className="px-4 mb-12 self-start">
-                <ShapeSwitcher shape={newShape} setShape={handleShape} />
+            <div className="self-start mx-2 mt-2 p-4 pt-0 overflow-hidden rounded-lg w-44 bg-[#2f3137] space-y-2 border-l-[3px] border-[#3d4146]">
+                <div className="">
+                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-gray-300 font-mono text-xs">Light source</div>
+                    <LightSwitcher source={newLight} setSource={handleLight} />
+                </div>
+                <div className="">
+                    <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-gray-300 font-mono text-xs">Shape</div>
+                    <ShapeSwitcher shape={newShape} setShape={handleShape} />
+                </div>
             </div>
             <div className="flex-1 flex items-center">
                 <div className="relative w-96 h-96" style={type}>
