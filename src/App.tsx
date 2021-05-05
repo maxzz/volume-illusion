@@ -3,6 +3,7 @@ import './App.scss';
 import { useTweaks } from 'use-tweaks';
 import { colorLuminance, getContrast } from './utils';
 import ShapeSwitcher from './components/ShapeSwitcher';
+import LightSwitcher from './components/LightSwitcher';
 
 type ShapeParams = {
     color: string;
@@ -12,8 +13,6 @@ type ShapeParams = {
     intensity: number;
     blur: number;
 
-    td: any,
-
     sun: number;
 };
 
@@ -21,12 +20,10 @@ function App() {
     const PARAMS: ShapeParams = useTweaks('Controls', {
         color: '#4f8df3',
         size: { value: 150, min: 10, max: 400 },
-        radius: { value: 90, min: 0, max: 100 },
+        radius: { value: 20, min: 0, max: 100 },
         distance: { value: 15, min: 5, max: 50 },
         intensity: { value: 0.2, min: 0.01, max: 0.6 },
         blur: { value: 19, min: 0, max: 100 },
-
-        td: {value: {x:1,y:0}, max:100},
 
         sun: { value: 1, min: 1, max: 4, step: 1 },
     });
@@ -108,7 +105,10 @@ function App() {
 
     return (
         <div className="h-screen flex flex-col place-items-center justify-between" style={{ backgroundColor: PARAMS.color }}>
-            <div className="p-4 mb-12 self-start">
+            <div className="p-4 self-start">
+                <LightSwitcher />
+            </div>
+            <div className="px-4 mb-12 self-start">
                 <ShapeSwitcher shape={newShape} setShape={handleShape} />
             </div>
             <div className="flex-1 flex items-center">
