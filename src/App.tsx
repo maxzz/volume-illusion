@@ -87,7 +87,9 @@ function App() {
 
     return (
         <div className="h-screen flex flex-col place-items-center justify-between" style={{ backgroundColor: PARAMS.color }}>
-            <div className="self-start mx-2 mt-2 p-4 pt-0 overflow-hidden rounded-lg w-44 bg-[#2f3137] space-y-2 border-l-[4px] border-[#3d4146] shadow-md">
+            <div className="self-start mx-2 mt-2 p-4 pt-0 overflow-hidden rounded-lg w-44 bg-[#2f3137] space-y-2 border-l-[4px] border-[#3d4146]"
+                style={{boxShadow: '0 2px 4px #00000033'}}
+            >
                 <div className="">
                     <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier">Light source</div>
                     <LightSwitcher source={sun} setSource={setSun} />
