@@ -24,45 +24,45 @@ function App() {
         blur: { value: 19, min: 0, max: 100 },
     });
 
-    const [ newShape, setNewShape ] = useState(0);
-    const [ newLight, setNewLight ] = useState(0);
+    const [shape, setShape] = useState(0);
+    const [sun, setSun] = useState(0);
 
     const gradient = true;
+
+    const shapeClass = shape === 1 ? 'threed-down' : 'threed';
 
     const darkColor = colorLuminance(PARAMS.color, PARAMS.intensity * -1);
     const lightColor = colorLuminance(PARAMS.color, PARAMS.intensity);
 
-    let shape = newShape;
-
     const firstGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 3 ? 0.07 : -0.1) : PARAMS.color;
     const secondGradientColor = gradient && shape !== 0 ? colorLuminance(PARAMS.color, shape === 2 ? 0.07 : -0.1) : PARAMS.color;
 
-    const lightPositions = [
+    const lightPositions: { x: number, y: number, angle: number; }[] = [
         {
-            positionX: 1,
-            positionY: 1,
+            x: 1,
+            y: 1,
             angle: 145,
         },
         {
-            positionX: -1,
-            positionY: 1,
+            x: -1,
+            y: 1,
             angle: 225,
         },
         {
-            positionX: 1,
-            positionY: -1,
+            x: 1,
+            y: -1,
             angle: 45,
         },
         {
-            positionX: -1,
-            positionY: -1,
+            x: -1,
+            y: -1,
             angle: 315,
         },
     ];
 
-    let lightPosition = lightPositions[newLight % 4];
-    let positionX = PARAMS.distance * lightPosition.positionX;
-    let positionY = PARAMS.distance * lightPosition.positionY;
+    let lightPosition = lightPositions[sun % 4];
+    let positionX = PARAMS.distance * lightPosition.x;
+    let positionY = PARAMS.distance * lightPosition.y;
     let angle = lightPosition.angle;
 
     const type = {
@@ -87,16 +87,12 @@ function App() {
         '--radius': `${PARAMS.radius}px`,
     } as CSSProperties;
 
-    const shapeClass = shape === 1 ? 'threed-down' : 'threed';
-
-    //console.log({ PARAMS });
-
     function handleLight(id: number) {
-        setNewLight(id);
+        setSun(id);
     }
 
     function handleShape(id: number) {
-        setNewShape(id);
+        setShape(id);
     }
 
     return (
@@ -104,11 +100,11 @@ function App() {
             <div className="self-start mx-2 mt-2 p-4 pt-0 overflow-hidden rounded-lg w-44 bg-[#2f3137] space-y-2 border-l-[3px] border-[#3d4146] shadow-md">
                 <div className="">
                     <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier">Light source</div>
-                    <LightSwitcher source={newLight} setSource={handleLight} />
+                    <LightSwitcher source={sun} setSource={handleLight} />
                 </div>
                 <div className="">
                     <div className="bg-[#3d4146] -mx-4 px-3 py-1 mb-2 text-[#c8cad0] text-[11px] font-courier">Shape</div>
-                    <ShapeSwitcher shape={newShape} setShape={handleShape} />
+                    <ShapeSwitcher shape={shape} setShape={handleShape} />
                 </div>
             </div>
             <div className="flex-1 flex items-center">
