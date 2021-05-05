@@ -94,6 +94,8 @@ function App() {
         '--radius': `${PARAMS.radius}px`,
     } as CSSProperties;
 
+    const shapeClass = shape === 1 ? 'threed-down' : 'threed';
+
     //console.log({ PARAMS });
 
     function handleLight(id: number) {
@@ -118,10 +120,10 @@ function App() {
             </div>
             <div className="flex-1 flex items-center">
                 <div className="relative w-96 h-96" style={type}>
-                    <div className="threed box1 absolute top-0 left-0"></div>
-                    <div className="threed box1 absolute top-0 right-0"></div>
-                    <div className="threed box1 absolute bottom-0 left-0"></div>
-                    <div className="threed box1 absolute bottom-0 right-0"></div>
+                    <div className={`${shapeClass} box1 absolute top-0 left-0`}></div>
+                    <div className={`${shapeClass} box1 absolute top-0 right-0`}></div>
+                    <div className={`${shapeClass} box1 absolute bottom-0 left-0`}></div>
+                    <div className={`${shapeClass} box1 absolute bottom-0 right-0`}></div>
                 </div>
             </div>
         </div>

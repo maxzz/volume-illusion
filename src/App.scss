@@ -28,7 +28,21 @@
         var(--positionXOpposite) var(--positionYOpposite)
         var(--blur) var(--lightColor);
 
-        border-radius: var(--radius);
+    border-radius: var(--radius);
+}
+
+.threed-down {
+    background: linear-gradient(var(--angle), var(--firstGradientColor), var(--secondGradientColor));
+    
+    box-shadow:
+        inset
+        var(--positionX) var(--positionY)
+        var(--blur) var(--darkColor),
+        inset
+        var(--positionXOpposite) var(--positionYOpposite)
+        var(--blur) var(--lightColor);
+
+    border-radius: var(--radius);
 }
 
 .box1 {
