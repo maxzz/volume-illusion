@@ -2,7 +2,7 @@ import React from 'react';
 import './LightSwitcher.scss';
 
 function LightSwitcher({source, setSource}: {source: number, setSource: (n: number) => void}) {
-    let gradient = source === 3 ? 'br' : source === 2 ? 'bl' : source === 1 ? 'tr' : 'tl';
+    let gradient = source === 3 ? 'bl' : source === 2 ? 'br' : source === 1 ? 'tr' : 'tl';
     return (
         <div className="grid grid-cols-3 text-gray-100">
             <div className="col-span-2 min-w-[64px]">
@@ -34,9 +34,9 @@ function LightSwitcher({source, setSource}: {source: number, setSource: (n: numb
 
             <div className="col-span-2 min-w-[64px]">
                 <svg
-                    className={`${source === 2 ? 'fill-[#fefe1f] stroke-[#654900]' : 'opacity-30'} h-6 w-6 transform rotate-[45deg] translate-x-[100%] cursor-pointer`}
+                    className={`${source === 3 ? 'fill-[#fefe1f] stroke-[#654900]' : 'opacity-30'} h-6 w-6 transform rotate-[45deg] translate-x-[100%] cursor-pointer`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    onClick={() => setSource(2)}
+                    onClick={() => setSource(3)}
                 >
                     <path
                         strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}
@@ -46,9 +46,9 @@ function LightSwitcher({source, setSource}: {source: number, setSource: (n: numb
             </div>
             <div className=" min-w-[64px]">
                 <svg
-                    className={`${source === 3 ? 'fill-[#fefe1f] stroke-[#654900]' : 'opacity-30'} h-6 w-6 transform rotate-[-45deg] cursor-pointer`}
+                    className={`${source === 2 ? 'fill-[#fefe1f] stroke-[#654900]' : 'opacity-30'} h-6 w-6 transform rotate-[-45deg] cursor-pointer`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    onClick={() => setSource(3)}
+                    onClick={() => setSource(2)}
                 >
                     <path
                         strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}

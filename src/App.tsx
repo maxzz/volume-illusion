@@ -26,14 +26,14 @@ const lightPositions: { x: number, y: number, angle: number; }[] = [
         angle: 225,
     },
     {
-        x: 1,
-        y: -1,
-        angle: 45,
-    },
-    {
         x: -1,
         y: -1,
         angle: 315,
+    },
+    {
+        x: 1,
+        y: -1,
+        angle: 45,
     },
 ];
 
